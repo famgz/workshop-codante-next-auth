@@ -1,4 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+NOTAS.md
+.env
+dev.db
 
 # dependencies
 /node_modules
