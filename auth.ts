@@ -12,8 +12,14 @@ export const { handlers, auth } = NextAuth({
   providers: [
     Credentials({
       credentials: {
-        email: {},
-        password: {},
+        email: {
+          label: 'Email',
+          type: 'email',
+        },
+        password: {
+          label: 'Senha',
+          type: 'password',
+        },
       },
       authorize: async (credentials) => {
         const email = credentials.email as string;
