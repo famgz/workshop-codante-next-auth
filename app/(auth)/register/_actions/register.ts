@@ -27,7 +27,7 @@ export default async function register(formData: FormData) {
     },
   });
 
-  console.log(newUser);
+  console.log({ newUser });
 
   redirect('/');
 }

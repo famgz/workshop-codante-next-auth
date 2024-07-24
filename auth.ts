@@ -3,7 +3,7 @@ import { compareSync } from 'bcrypt-ts';
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 
-export const { handlers, auth } = NextAuth({
+const options = {
   // customize auth routes
   // pages: {
   //   signIn: '/login',
@@ -43,4 +43,6 @@ export const { handlers, auth } = NextAuth({
       },
     }),
   ],
-});
+};
+
+export const { handlers, auth, signIn, signOut } = NextAuth(options);
