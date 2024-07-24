@@ -14,50 +14,51 @@ import { Label } from '@/components/ui/label';
 import { UserIcon } from '../_components/user-icon';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import register from '@/app/(auth)/register/_actions/register';
 
 export default function RegisterForm() {
   return (
     <>
-      <Card className="mx-auto max-w-96">
+      <Card className='mx-auto max-w-96'>
         <CardHeader>
-          <CardTitle className="flex items-center justify-center gap-2">
-            <UserIcon className="w-6 h-6" />
+          <CardTitle className='flex items-center justify-center gap-2'>
+            <UserIcon className='w-6 h-6' />
             Cadastre-se
           </CardTitle>
           <CardDescription>Crie uma conta gratuitamente</CardDescription>
         </CardHeader>
         <CardContent>
-          <form className="text-left ">
-            <div className="space-y-6">
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="name">Nome</Label>
+          <form className='text-left' action={register}>
+            <div className='space-y-6'>
+              <div className='grid w-full max-w-sm items-center gap-1.5'>
+                <Label htmlFor='name'>Nome</Label>
                 <Input
-                  name="name"
-                  type="name"
-                  id="name"
-                  placeholder="Fulano de Tal"
+                  name='name'
+                  type='name'
+                  id='name'
+                  placeholder='Fulano de Tal'
                 />
               </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="email">Email</Label>
+              <div className='grid w-full max-w-sm items-center gap-1.5'>
+                <Label htmlFor='email'>Email</Label>
                 <Input
-                  name="email"
-                  type="email"
-                  id="email"
-                  placeholder="email@exemplo.com"
+                  name='email'
+                  type='email'
+                  id='email'
+                  placeholder='email@exemplo.com'
                 />
               </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="password">Senha</Label>
+              <div className='grid w-full max-w-sm items-center gap-1.5'>
+                <Label htmlFor='password'>Senha</Label>
                 <Input
-                  name="password"
-                  type="password"
-                  id="password"
-                  placeholder="********"
+                  name='password'
+                  type='password'
+                  id='password'
+                  placeholder='********'
                 />
               </div>
             </div>
-            <Button size={'lg'} type="submit" className="w-full mt-10 ">
+            <Button size={'lg'} type='submit' className='w-full mt-10 '>
               Registrar
             </Button>
           </form>
@@ -68,16 +69,14 @@ export default function RegisterForm() {
               buttonVariants({ variant: 'link', size: 'sm' }),
               'mt-2 mx-auto'
             )}
-            href="/login"
-          >
+            href='/login'>
             Já possui conta?
           </Link>
         </CardFooter>
       </Card>
       <Link
         className={cn(buttonVariants({ variant: 'link', size: 'lg' }), 'mt-8')}
-        href="/"
-      >
+        href='/'>
         Voltar para Home
       </Link>
     </>
