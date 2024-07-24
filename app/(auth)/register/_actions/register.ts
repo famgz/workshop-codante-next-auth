@@ -2,6 +2,7 @@
 
 import db from '@/lib/db';
 import { hashSync } from 'bcrypt-ts';
+import { redirect } from 'next/navigation';
 
 export default async function register(formData: FormData) {
   const name = formData.get('name') as string;
@@ -27,4 +28,6 @@ export default async function register(formData: FormData) {
   });
 
   console.log(newUser);
+
+  redirect('/');
 }

@@ -1,10 +1,14 @@
-import { metadata } from './app/layout';
-import NextAuth from 'next-auth';
-import Credentials from 'next-auth/providers/credentials';
 import db from '@/lib/db';
 import { compareSync } from 'bcrypt-ts';
+import NextAuth from 'next-auth';
+import Credentials from 'next-auth/providers/credentials';
 
 export const { handlers, auth } = NextAuth({
+  // customize auth routes
+  // pages: {
+  //   signIn: '/login',
+  //   signOut: '/logout',
+  // },
   providers: [
     Credentials({
       credentials: {
