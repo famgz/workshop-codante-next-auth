@@ -2,12 +2,13 @@ import db from '@/lib/db';
 import { compareSync } from 'bcrypt-ts';
 import NextAuth, { NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import GitHub from 'next-auth/providers/github';
 
 const options: NextAuthConfig = {
   // customize auth routes
   pages: {
-    signIn: '/login-client',
-    signOut: '/logout',
+    // signIn: '/login-client',
+    // signOut: '/logout',
   },
   providers: [
     Credentials({
@@ -42,6 +43,7 @@ const options: NextAuthConfig = {
         return user;
       },
     }),
+    GitHub, // this order mattters for the default signin page layout
   ],
   callbacks: {
     authorized: async ({ auth }) => {

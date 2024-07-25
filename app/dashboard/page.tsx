@@ -2,6 +2,7 @@ import logout from '@/app/(auth)/_actions/logout';
 import { auth } from '@/auth';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
@@ -18,6 +19,20 @@ export default async function Dashboard() {
         <h1 className='font-extrabold text-slate-600 dark:text-transparent text-7xl dark:bg-gradient-to-r dark:from-slate-50 dark:via-slate-400 dark:to-slate-200 bg-clip-text'>
           Dashboard
         </h1>
+        {/* <div> */}
+        <Image
+          src={
+            session.user?.image ||
+            'https://www.aurubis.com/.resources/aurubis-light-module/webresources/assets/img/image-avatar-avatar-fallback.svg'
+          }
+          alt=''
+          height={64}
+          width={64}
+          placeholder='blur'
+          blurDataURL='https://www.aurubis.com/.resources/aurubis-light-module/webresources/assets/img/image-avatar-avatar-fallback.svg'
+          className='rounded-full mx-auto my-2'
+        />
+        {/* </div> */}
         <h3 className='mt-4 font-bold text-muted-foreground'>
           Boas vindas{`, ${session.user?.name || 'usuário'}`}!
         </h3>

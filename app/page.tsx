@@ -27,10 +27,12 @@ export default function Home() {
           Login Simples
         </Link>
         <Link href='/login-server' className={cn(buttonVariants())}>
-          Login - Server Components
+          <Mail className='w-4 h-4' />
+          Login - Server
         </Link>
         <Link href='/login-client' className={cn(buttonVariants())}>
-          Login - Client Components
+          <Mail className='w-4 h-4' />
+          Login - Client
         </Link>
         <Link
           href='/login-github'

@@ -46,14 +46,24 @@ export default function LoginForm() {
         </form>
       </CardContent>
       <CardFooter>
-        <Link
-          className={cn(
-            buttonVariants({ variant: 'link', size: 'sm' }),
-            'mt-2 mx-auto'
-          )}
-          href='/register'>
-          Não possui conta?
-        </Link>
+        <div className='flex flex-col mx-auto'>
+          <Link
+            className={cn(
+              buttonVariants({ variant: 'link', size: 'sm' }),
+              'mt-2 mx-auto'
+            )}
+            href='/register'>
+            Não possui conta?
+          </Link>
+          <Link
+            className={cn(
+              buttonVariants({ variant: 'link', size: 'sm' }),
+              'mt-2 mx-auto'
+            )}
+            href='/'>
+            Voltar para Home
+          </Link>
+        </div>
       </CardFooter>
     </Card>
   );
