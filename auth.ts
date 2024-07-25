@@ -1,14 +1,14 @@
 import db from '@/lib/db';
 import { compareSync } from 'bcrypt-ts';
-import NextAuth from 'next-auth';
+import NextAuth, { NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 
-const options = {
+const options: NextAuthConfig = {
   // customize auth routes
-  // pages: {
-  //   signIn: '/login',
-  //   signOut: '/logout',
-  // },
+  pages: {
+    signIn: '/login-client',
+    signOut: '/logout',
+  },
   providers: [
     Credentials({
       credentials: {
@@ -43,6 +43,11 @@ const options = {
       },
     }),
   ],
+  callbacks: {
+    authorized: async ({ auth }) => {
+      return !!auth;
+    },
+  },
 };
 
 export const { handlers, auth, signIn, signOut } = NextAuth(options);
