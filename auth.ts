@@ -4,6 +4,7 @@ import { compareSync } from 'bcrypt-ts';
 import NextAuth, { NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import GitHub from 'next-auth/providers/github';
+import Resend from 'next-auth/providers/resend';
 
 const options: NextAuthConfig = {
   // customize auth routes
@@ -48,9 +49,17 @@ const options: NextAuthConfig = {
         return user;
       },
     }),
+    // the providers order mattters for the default signin page layout
     GitHub({
       allowDangerousEmailAccountLinking: true,
-    }), // this order mattters for the default signin page layout
+    }),
+    // Nodemailer({
+    //   server: process.env.EMAIL_SERVER,
+    //   from: process.env.EMAIL_FROM,
+    // }),
+    Resend({
+      from: process.env.EMAIL_FROM,
+    }),
   ],
   callbacks: {
     authorized: async ({ auth }) => {
