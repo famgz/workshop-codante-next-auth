@@ -1,8 +1,7 @@
 'use client';
 
+import login from '@/app/(auth)/login-server/_actions/login';
 import { Button, buttonVariants } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import {
   Card,
   CardContent,
@@ -11,11 +10,16 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import Link from 'next/link';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import login from '@/app/(auth)/login-server/_actions/login';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 export default function LoginForm() {
+  const params = useSearchParams();
+  const emailFromURL = params.get('email') || '';
+
   return (
     <Card className='mx-auto max-w-96'>
       <CardHeader>
@@ -28,7 +32,13 @@ export default function LoginForm() {
           <div className='space-y-6'>
             <div className='grid w-full max-w-sm items-center gap-1.5'>
               <Label htmlFor='email'>Email</Label>
-              <Input name='email' type='email' id='email' placeholder='Email' />
+              <Input
+                name='email'
+                type='email'
+                id='email'
+                placeholder='Email'
+                defaultValue={emailFromURL}
+              />
             </div>
             <div className='grid w-full max-w-sm items-center gap-1.5'>
               <Label htmlFor='password'>Senha</Label>

@@ -29,5 +29,5 @@ export default async function register(formData: FormData) {
 
   console.log({ newUser });
 
-  redirect('/');
+  redirect(`/login-server?email=${email}`);
 }
