@@ -19,7 +19,7 @@ import { useState } from 'react';
 export default function LoginForm() {
   const [error, setError] = useState('');
 
-  function handleSubmit(ev: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(ev: React.FormEvent<HTMLFormElement>) {
     setError('');
     ev.preventDefault();
 
@@ -28,7 +28,7 @@ export default function LoginForm() {
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
 
-    signIn('credentials', {
+    await signIn('credentials', {
       email,
       password,
       redirect: true,

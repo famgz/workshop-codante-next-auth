@@ -26,10 +26,8 @@ export default async function Dashboard() {
             'https://www.aurubis.com/.resources/aurubis-light-module/webresources/assets/img/image-avatar-avatar-fallback.svg'
           }
           alt=''
-          height={64}
-          width={64}
-          placeholder='blur'
-          blurDataURL='https://www.aurubis.com/.resources/aurubis-light-module/webresources/assets/img/image-avatar-avatar-fallback.svg'
+          height={100}
+          width={100}
           className='rounded-full mx-auto my-2'
         />
         {/* </div> */}
