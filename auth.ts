@@ -48,7 +48,9 @@ const options: NextAuthConfig = {
         return user;
       },
     }),
-    GitHub, // this order mattters for the default signin page layout
+    GitHub({
+      allowDangerousEmailAccountLinking: true,
+    }), // this order mattters for the default signin page layout
   ],
   callbacks: {
     authorized: async ({ auth }) => {
