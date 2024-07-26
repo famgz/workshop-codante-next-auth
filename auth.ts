@@ -1,4 +1,5 @@
 import db from '@/lib/db';
+import { PrismaAdapter } from '@auth/prisma-adapter';
 import { compareSync } from 'bcrypt-ts';
 import NextAuth, { NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
@@ -9,6 +10,10 @@ const options: NextAuthConfig = {
   pages: {
     // signIn: '/login-client',
     // signOut: '/logout',
+  },
+  adapter: PrismaAdapter(db),
+  session: {
+    strategy: 'jwt',
   },
   providers: [
     Credentials({
@@ -34,7 +39,7 @@ const options: NextAuthConfig = {
 
         if (!user) return null;
 
-        const passwordsMatches = compareSync(password, user.password);
+        const passwordsMatches = compareSync(password, user.password!);
 
         if (!passwordsMatches) {
           return null;
