@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className='container py-20 mx-auto text-center'>
+    <main className='container px-0 py-20 mx-auto text-center'>
       <header className='mx-auto'>
         <h1 className='max-w-[500px] mx-auto font-extrabold text-slate-600 dark:text-transparent text-5xl min-[400px]:text-7xl dark:bg-gradient-to-r dark:from-slate-50 dark:via-slate-400 dark:to-slate-200 bg-clip-text'>
           Workshop Auth.js

@@ -57,3 +57,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.container {
+  @apply py-20 px-5;
+}
