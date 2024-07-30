@@ -28,19 +28,21 @@ export default function RootLayout({
           'min-h-screen bg-background font-sans antialiased  relative',
           fontSans.variable
         )}>
-        <SessionProvider>
-          <ThemeProvider
-            attribute='class'
-            defaultTheme='dark'
-            enableSystem
-            disableTransitionOnChange>
-            <div className='absolute top-5 right-5'>
-              <ModeToggle />
-            </div>
+        <div className='max-w-[768px] mx-auto relative'>
+          <SessionProvider>
+            <ThemeProvider
+              attribute='class'
+              defaultTheme='dark'
+              enableSystem
+              disableTransitionOnChange>
+              <div className='absolute top-5 right-5'>
+                <ModeToggle />
+              </div>
 
-            {children}
-          </ThemeProvider>
-        </SessionProvider>
+              {children}
+            </ThemeProvider>
+          </SessionProvider>
+        </div>
       </body>
     </html>
   );

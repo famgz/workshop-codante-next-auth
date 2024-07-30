@@ -56,7 +56,7 @@ export default function Home() {
             buttonVariants({ size: 'lg' }),
             'flex items-center gap-2'
           )}>
-          <SiGithub className='size-4' />
+          <SiGithub className='size-4 shrink-0' />
           Login com Github
         </Link>
         <Link
@@ -65,7 +65,7 @@ export default function Home() {
             buttonVariants({ size: 'lg' }),
             'flex items-center gap-2'
           )}>
-          <Mail className='size-4' />
+          <Mail className='size-4 shrink-0' />
           Login Link Email
         </Link>
       </section>
