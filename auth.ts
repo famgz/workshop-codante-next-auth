@@ -58,12 +58,15 @@ const options: NextAuthConfig = {
     //   from: process.env.EMAIL_FROM,
     // }),
     Resend({
-      from: process.env.EMAIL_FROM,
+      from: process.env.RESEND_EMAIL_FROM,
     }),
   ],
   callbacks: {
     authorized: async ({ auth }) => {
       return !!auth;
+    },
+    session({ session }) {
+      return session;
     },
   },
 };

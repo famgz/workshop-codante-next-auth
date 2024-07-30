@@ -1,6 +1,6 @@
 'use client';
 
-import nodemailerLogin from '@/app/(auth)/login-email/_actions/emailLogin';
+import resendLogin from '@/app/(auth)/login-email/_actions/emailLogin';
 import { Button, buttonVariants } from '@/components/ui/button';
 import {
   Card,
@@ -25,7 +25,7 @@ export default function LoginForm() {
       </CardHeader>
       <CardContent>
         {' '}
-        <form action={nodemailerLogin} className='text-left '>
+        <form action={resendLogin} className='text-left '>
           <div className='grid w-full max-w-sm items-center gap-1.5'>
             <Label htmlFor='email'>Email</Label>
             <Input name='email' type='email' id='email' placeholder='Email' />
