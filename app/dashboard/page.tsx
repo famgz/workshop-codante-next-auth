@@ -14,7 +14,7 @@ export default async function Dashboard() {
   }
 
   return (
-    <main className='container p-20 mx-auto text-center'>
+    <main className='container mx-auto text-center'>
       <div>
         <h1 className='font-extrabold text-slate-600 dark:text-transparent text-7xl dark:bg-gradient-to-r dark:from-slate-50 dark:via-slate-400 dark:to-slate-200 bg-clip-text'>
           Dashboard
@@ -37,6 +37,17 @@ export default async function Dashboard() {
         <p className='text-sm text-muted-foreground/60 mt-1'>
           Email: {session.user?.email}
         </p>
+        {session.user?.githubProfile && (
+          <>
+            <p className='text-sm text-muted-foreground/60 mt-1'>
+              Numero de seguidores do Github:{' '}
+              {session.user?.githubProfile?.followers}
+            </p>
+            <p className='text-sm text-muted-foreground/60 mt-1'>
+              Bio: {session.user?.githubProfile?.bio}
+            </p>
+          </>
+        )}
         <hr className='w-1/4 mx-auto mt-5 mb-16' />
 
         <section className='flex flex-wrap items-center justify-center gap-3'>

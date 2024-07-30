@@ -1,10 +1,19 @@
 import db from '@/lib/db';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { compareSync } from 'bcrypt-ts';
-import NextAuth, { NextAuthConfig } from 'next-auth';
+import NextAuth, { NextAuthConfig, User } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import GitHub from 'next-auth/providers/github';
 import Resend from 'next-auth/providers/resend';
+
+// module augmentation
+declare module 'next-auth' {
+  interface Session {
+    user: User & {
+      githubProfile?: any;
+    };
+  }
+}
 
 const options: NextAuthConfig = {
   // customize auth routes
@@ -65,7 +74,11 @@ const options: NextAuthConfig = {
     authorized: async ({ auth }) => {
       return !!auth;
     },
-    session({ session }) {
+    jwt({ token, profile }) {
+      return { githubProfile: profile, ...token };
+    },
+    session({ session, token }) {
+      session.user.githubProfile = token.githubProfile;
       return session;
     },
   },
