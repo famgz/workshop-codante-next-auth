@@ -2,7 +2,7 @@ import { auth } from '@/auth';
 import { NextResponse } from 'next/server';
 
 export default auth((req) => {
-  console.log('[middleware] req.auth: ', req.auth, req.nextUrl.pathname);
+  // console.log('[middleware] req.auth: ', req.auth, req.nextUrl.pathname);
 
   // protect login/register if already logged in
   if (

@@ -69,7 +69,7 @@ export default function RegisterForm() {
               buttonVariants({ variant: 'link', size: 'sm' }),
               'mt-2 mx-auto'
             )}
-            href='/login'>
+            href='/login-server'>
             Já possui conta?
           </Link>
         </CardFooter>
